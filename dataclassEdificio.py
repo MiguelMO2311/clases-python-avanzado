@@ -6,15 +6,17 @@ def nombre_piso(piso: int, piso_alto: int) -> str:
     """
     Convierte un número de piso en su representación según las convenciones.
     """
-    if piso < 0:
-        return f"S{abs(piso)}"   # Sótano
-    if piso == 0:
-        return "B"               # Bajo
-    if piso == 1:
-        return "E"               # Entreplanta
-    if piso == piso_alto:
-        return "A"               # Azotea
-    return str(piso)             # Piso normal
+    match piso:
+        case _ if piso < 0:
+            return f"S{abs(piso)}"   # Sótano
+        case 0:
+            return "B"               # Bajo
+        case 1:
+            return "E"               # Entreplanta
+        case _ if piso == piso_alto:
+            return "A"               # Azotea
+        case _:
+            return str(piso)         # Piso normal
 
 
 @dataclass
@@ -34,7 +36,7 @@ class Edificio:
 
 
 # Ejemplo de uso
-
 if __name__ == "__main__":
     inst = Edificio(-2, 5)
     print(inst.plantas)
+
