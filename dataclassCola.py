@@ -23,17 +23,21 @@ class Cola:
     def __str__(self) -> str:
         """Representación legible de la cola."""
         return f"Cola(pendientes={len(self._cola)})"
-cola = Cola()
+    
+# Ejemplo de uso
+    
+if __name__ == "__main__":
+    cola = Cola()
 
-cola.añadir_tarea("procesar_imagen")
-cola.añadir_tarea("backup")
-cola.añadir_tarea("exportar_pdf")
+    cola.añadir_tarea("procesar_imagen")
+    cola.añadir_tarea("backup")
+    cola.añadir_tarea("exportar_pdf")
 
-print(cola)  # Cola(pendientes=3)
+    print(cola)  # Cola(pendientes=3)
 
-print(cola.siguiente_tarea())  # procesar_imagen
-print(cola.siguiente_tarea())  # backup
+    print(cola.siguiente_tarea())  # procesar_imagen
+    print(cola.siguiente_tarea())  # backup
 
-print(cola)  # Cola(pendientes=1)
+    print(cola)  # Cola(pendientes=1)
 
 
