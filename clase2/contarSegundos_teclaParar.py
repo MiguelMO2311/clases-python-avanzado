@@ -1,7 +1,7 @@
 import threading
 import time
+import msvcrt  # disponible en la librería estándar de Windows
 
-# Variable de control
 detener = False
 
 def contar():
@@ -11,11 +11,16 @@ def contar():
         time.sleep(1)
         segundos += 1
 
-# Lanzar el hilo como demonio (no bloquea la salida del programa)
-threading.Thread(target=contar, daemon=True).start()
+hilo = threading.Thread(target=contar)
+hilo.start()
 
-# El hilo principal espera a que presiones Enter
-input("Presiona Enter para detener...\n")
-detener = True
+print("Pulsa cualquier tecla para detener...\n")
+while True:
+    if msvcrt.kbhit():   # detecta pulsación
+        msvcrt.getch()   # lee la tecla
+        detener = True
+        break
 
+# Espera a que el hilo termine
+hilo.join()
 print("Contador detenido.")
