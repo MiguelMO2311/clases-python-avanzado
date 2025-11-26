@@ -24,3 +24,4 @@ if __name__ == "__main__":
     # usamos la lista que nos den
     imagenes_prueba = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"]  # ejemplo con 4
     main(imagenes_prueba)
+
