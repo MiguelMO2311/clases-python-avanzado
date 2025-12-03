@@ -14,8 +14,8 @@ Características
 ---
 
 Estructura del proyecto
-plaintext
-software_biblioteca/
+
+library/
 ├── .env
 ├── config.ini
 ├── app/
@@ -24,24 +24,28 @@ software_biblioteca/
 │   │   └── models.py
 │   ├── repository/
 │   │   ├── interfaces.py
-│   │   └── json_repo.py
+│   │   ├── json_repo.py        # Repositorio de libros
+│   │   └── user_repo.py        # Repositorio de usuarios
 │   ├── services/
-│   │   └── book_service.py
+│   │   ├── book_service.py     # Lógica de negocio de libros
+│   │   └── user_service.py     # Lógica de negocio de usuarios
 │   └── adapters/
-│       └── cli.py
+│       └── cli.py              # CLI principal
 ├── data/
-│   └── database.json
+│   ├── database.json           # Datos de libros
+│   └── users.json              # Datos de usuarios
 └── tests/
     ├── conftest.py
     ├── test_repository.py
-    └── test_services.py
+    ├── test_services.py
+    └── test_users.py           # Tests de usuarios
 
 ---
 Instalación
 
 Clona el repositorio y entra en la carpeta del proyecto:
 
-git clone <https://github.com/usuario/software_biblioteca.git>
+git clone <https://github.com/MiguelMO2311/clases-python-avanzado/tree/main/clase11/library>
 cd software_biblioteca
 
 Instala las dependencias necesarias:
