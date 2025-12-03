@@ -21,7 +21,7 @@ class BookRepositoryInterface(Protocol):
     def update(self, book_id: int, title: str, author: str) -> Optional[Book]: ...
     def delete(self, book_id: int) -> bool: ...
 
-# --- Implementación concreta con JSON ---
+# --- Implementación con JSON ---
 class JsonBookRepository(BookRepositoryInterface):
     def __init__(self, path: str = DATA_FILE):
         # Inicializa el archivo JSON si no existe
